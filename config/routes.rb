@@ -5,6 +5,7 @@ LBCNew::Application.routes.draw do
   get "posts/new"
   get "posts/index"
   get "posts/show"
+  get "posts/edit"
   resources :posts
   resources :profil
   devise_for :users
