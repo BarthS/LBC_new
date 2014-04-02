@@ -1,6 +1,8 @@
 LBCNew::Application.routes.draw do
-  get '/profils/:id', to: 'profils#show'
-  resources :profils
+  root 'page#index'
+  get "page/index"
+  # get '/profils/:id', to: 'profils#show'
+  resources :profil
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

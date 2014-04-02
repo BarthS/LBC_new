@@ -1,5 +1,5 @@
 %p
-  - if @user.photo_profil?
+  - if @user.avatar?
     = image_tag @user.avatar.url(:thumb)
 
 %p
