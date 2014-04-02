@@ -1,5 +1,7 @@
 LBCNew::Application.routes.draw do
 
+  resources :annonces
+
   root 'page#index'
   get "page/index"
   get "profil/list"
