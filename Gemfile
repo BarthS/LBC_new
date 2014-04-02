@@ -31,6 +31,8 @@ gem 'devise'
 
 gem "paperclip", "~> 4.1"
 
+gem 'haml', '~> 4.0.5'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

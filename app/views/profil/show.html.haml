@@ -1,0 +1,13 @@
+%p
+  - if @user.photo_profil?
+    = image_tag @user.avatar.url(:thumb)
+
+%p
+  = @user.nom
+  = @user.prenom
+
+%p= @user.promo
+
+%p= @user.email
+
+%p= @user.tel
