@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def create
-  @user = User.create( user_params )
+    @user = User.create( user_params )
   end
 
   private

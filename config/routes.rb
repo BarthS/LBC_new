@@ -1,6 +1,5 @@
 LBCNew::Application.routes.draw do
-  get "annonce/list"
-  get "annonce/show"
+
   root 'page#index'
   get "page/index"
   get "profil/list"
