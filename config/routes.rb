@@ -1,10 +1,11 @@
 LBCNew::Application.routes.draw do
-
-  resources :annonces
-
   root 'page#index'
   get "page/index"
   get "profil/list"
+  get "posts/new"
+  get "posts/index"
+  get "posts/show"
+  resources :posts
   resources :profil
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
