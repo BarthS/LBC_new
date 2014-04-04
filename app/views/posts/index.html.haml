@@ -1,0 +1,8 @@
+%h1 Listing posts
+
+- @posts.each do |p|
+  %h3
+    = link_to p.title, "/posts/#{p.id}"
+    |
+    = p.price
+    €
