@@ -1,0 +1,4 @@
+%p
+  %strong Text:
+  = @comment.text
+  = link_to 'Destroy', comment_path(@comment), method: :delete, data: { confirm: 'Are you sure?' }
