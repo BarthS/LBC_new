@@ -6,10 +6,11 @@ LBCNew::Application.routes.draw do
   get "posts/index"
   get "posts/show"
   get "posts/edit"
-  get "posts/comments/new"
-  get "posts/comments/show"
-  get "posts/comments/index"
-  # resources :comments
+  get "reports/new"
+  get "reports/show"
+  get "reports/index"
+
+  resources :reports
   resources :posts do
     resources :comments
   end

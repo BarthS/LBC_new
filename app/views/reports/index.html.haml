@@ -1,0 +1,6 @@
+%h1 Listing reports
+
+- @reports.each do |r|
+  %h3
+    = r.text
+    = link_to 'Destroy', report_path(r), method: :delete, data: { confirm: 'Are you sure?' }
