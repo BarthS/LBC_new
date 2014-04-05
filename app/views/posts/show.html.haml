@@ -1,0 +1,30 @@
+%p
+  %strong Author:
+  = @author.nom
+
+%p
+  %strong Title:
+  = @post.title
+%p
+  %strong Price:
+  = @post.price
+%p
+  %strong Text:
+  = @post.text
+
+
+%p
+  - if @post.image1?
+    = image_tag @post.image1.url(:thumb)
+%p
+  - if @post.image2?
+    = image_tag @post.image2.url(:thumb)
+%p
+  - if @post.image3?
+    = image_tag @post.image3.url(:thumb)
+%p
+  - if @post.image4?
+    = image_tag @post.image4.url(:thumb)
+%p
+  - if @post.image5?
+    = image_tag @post.image5.url(:thumb)

@@ -1,0 +1,58 @@
+%h1 Editing post
+= form_for :post, url: post_path(@post), method: :patch do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@post.errors.count, "error")
+        prohibited
+        this post from being saved:
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+  %p
+    = f.label :price
+    %br/
+    = f.number_field :price
+  %p
+    = f.label :text
+    %br/
+    = f.text_area :text
+  %p
+    = f.label :image1
+    %br/
+    = f.file_field :image1
+    - if @post.image1?
+      OK
+  %p
+    = f.label :image2
+    %br/
+    = f.file_field :image2
+    - if @post.image2?
+      OK
+  %p
+    = f.label :image3
+    %br/
+    = f.file_field :image3
+    - if @post.image3?
+      OK
+  %p
+    = f.label :image4
+    %br/
+    = f.file_field :image4
+    - if @post.image4?
+      OK
+  %p
+    = f.label :image5
+    %br/
+    = f.file_field :image5
+    - if @post.image5?
+      OK
+
+  %p
+    = f.submit
+    
+= link_to 'Back', posts_path

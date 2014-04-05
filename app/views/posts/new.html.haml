@@ -1,0 +1,42 @@
+%h1 New Post
+= form_for :post, url: posts_path do |f|
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+  %p
+    = f.label :price
+    %br/
+    = f.number_field :price
+
+  %p
+    = f.label :text
+    %br/
+    = f.text_area :text
+  %p
+    = f.label :image1
+    %br/
+    = f.file_field :image1
+
+  %p
+    = f.label :image2
+    %br/
+    = f.file_field :image2
+
+  %p
+    = f.label :image3
+    %br/
+    = f.file_field :image3
+
+  %p
+    = f.label :image4
+    %br/
+    = f.file_field :image4
+
+  %p
+    = f.label :image5
+    %br/
+    = f.file_field :image5
+
+  %p
+    = f.submit
