@@ -1,7 +1,0 @@
-%h1 Listing comments
-
-%p
-  Text
-  - @comments.each do |com|
-    %p= com.text
-    = link_to 'Destroy', comment_path(com), method: :delete, data: { confirm: 'Are you sure?' }

@@ -6,11 +6,13 @@ LBCNew::Application.routes.draw do
   get "posts/index"
   get "posts/show"
   get "posts/edit"
-  get "comments/new"
-  get "comments/show"
-  get "comments/index"
-  resources :comments
-  resources :posts
+  get "posts/comments/new"
+  get "posts/comments/show"
+  get "posts/comments/index"
+  # resources :comments
+  resources :posts do
+    resources :comments
+  end
   resources :profil
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
