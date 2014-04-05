@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
     @author = current_user.id
+    @cats = Cat.all
   end
 
   def show
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @cats = Cat.all
   end
 
   def create
@@ -43,6 +45,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :title, :price, :text, :image1, :image2, :image3, :image4, :image5)
+      params.require(:post).permit(:user_id, :cat_id, :title, :price, :text, :image1, :image2, :image3, :image4, :image5)
     end
 end

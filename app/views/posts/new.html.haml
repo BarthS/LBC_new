@@ -5,6 +5,10 @@
     %br/
     = f.text_field :title
   %p
+    = f.label :Catégorie
+    %br/
+    = collection_select :post, :cat_id, @cats, :id, :name, { :include_blank => "Select Catégorie"}
+  %p
     = f.label :price
     %br/
     = f.number_field :price

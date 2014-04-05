@@ -1,0 +1,7 @@
+= form_for :cat, url: cats_path do |f|
+  %p
+    = f.label :Nom
+    %br/
+    = f.text_field :name
+  %p
+    = f.submit
