@@ -1,25 +1,25 @@
-class reportsController < ApplireportionController
+class ReportsController < ApplicationController
   def new
   end
 
   def show
-    @report = report.find(params[:id])
+    @report = Report.find(params[:id])
   end
 
   def index
-    @reports = report.all
+    @reports = Report.all
   end
 
 
   def create
-    @report = report.new(report_params)
+    @report = Report.new(report_params)
 
     @report.save
     redirect_to @report
   end
 
   def destroy
-    @report = report.find(params[:id])
+    @report = Report.find(params[:id])
     @report.destroy
 
     redirect_to reports_path

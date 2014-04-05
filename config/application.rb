@@ -7,9 +7,9 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 
 module LBCNew
-  class Applireportion < Rails::Applireportion
+  class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
-    # Applireportion configuration should go into files in config/initializers
+    # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.

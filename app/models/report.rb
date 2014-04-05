@@ -1,2 +1,2 @@
-class report < ActiveRecord::Base
+class Report < ActiveRecord::Base
 end

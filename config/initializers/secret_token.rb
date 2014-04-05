@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-LBCNew::Applireportion.config.secret_key_base = 'e77ed55aac53343048e871e716888b1857cbba2f4ce2ed7365e65f256c3fc193b111e81dec627a3feb889def5570f96ce15767524a4e86b7449b000aa3a517b1'
+LBCNew::Application.config.secret_key_base = 'e77ed55aac53343048e871e716888b1857cbba2f4ce2ed7365e65f256c3fc193b111e81dec627a3feb889def5570f96ce15767524a4e86b7449b000aa3a517b1'

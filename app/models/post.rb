@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :report
 
   has_many :comments, dependent: :destroy
 

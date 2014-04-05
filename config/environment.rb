@@ -1,5 +1,5 @@
-# Load the Rails applireportion.
-require File.expand_path('../applireportion', __FILE__)
+# Load the Rails application.
+require File.expand_path('../application', __FILE__)
 
-# Initialize the Rails applireportion.
-LBCNew::Applireportion.initialize!
+# Initialize the Rails application.
+LBCNew::Application.initialize!

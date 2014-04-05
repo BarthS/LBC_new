@@ -1,2 +1,2 @@
-module ApplireportionHelper
+module ApplicationHelper
 end
