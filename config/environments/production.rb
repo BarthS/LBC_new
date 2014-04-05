@@ -1,11 +1,11 @@
-LBCNew::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+LBCNew::Applireportion.configure do
+  # Settings specified here will take precedence over those in config/applireportion.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
-  # your application in memory, allowing both thread web servers
+  # your applireportion in memory, allowing both thread web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
@@ -14,7 +14,7 @@ LBCNew::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Enable Rack::Cache to put a simple HTTP cache in front of your application
+  # Enable Rack::Cache to put a simple HTTP cache in front of your applireportion
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   # config.action_dispatch.rack_cache = true
@@ -58,7 +58,7 @@ LBCNew::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets.
-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+  # applireportion.js, applireportion.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -69,8 +69,8 @@ LBCNew::Application.configure do
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
 
-  # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
+  # Send deprereportion notices to registered listeners.
+  config.active_support.deprereportion = :notify
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

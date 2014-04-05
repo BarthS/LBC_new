@@ -1,8 +1,7 @@
 class Createreports < ActiveRecord::Migration
   def change
     create_table :reports do |t|
-      t.text :text
-      t.string :link
+      t.string :name
 
       t.timestamps
     end

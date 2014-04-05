@@ -21,51 +21,51 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
-  # ==> Configuration for any authentication mechanism
-  # Configure which keys are used when authenticating a user. The default is
+  # ==> Configuration for any authentireportion mechanism
+  # Configure which keys are used when authentireporting a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
-  # authenticating a user, both parameters are required. Remember that those
-  # parameters are used only when authenticating and not when retrieving from
+  # authentireporting a user, both parameters are required. Remember that those
+  # parameters are used only when authentireporting and not when retrieving from
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
-  # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
+  # or not authentireportion should be aborted when the value is not present.
+  # config.authentireportion_keys = [ :email ]
 
-  # Configure parameters from the request object used for authentication. Each entry
+  # Configure parameters from the request object used for authentireportion. Each entry
   # given should be a request method and it will automatically be passed to the
-  # find_for_authentication method and considered in your model lookup. For instance,
-  # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
-  # The same considerations mentioned for authentication_keys also apply to request_keys.
+  # find_for_authentireportion method and considered in your model lookup. For instance,
+  # if you set :request_keys to [:subdomain], :subdomain will be used on authentireportion.
+  # The same considerations mentioned for authentireportion_keys also apply to request_keys.
   # config.request_keys = []
 
-  # Configure which authentication keys should be case-insensitive.
+  # Configure which authentireportion keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
-  # to authenticate or find a user. Default is :email.
+  # to authentireporte or find a user. Default is :email.
   config.case_insensitive_keys = [ :email ]
 
-  # Configure which authentication keys should have whitespace stripped.
+  # Configure which authentireportion keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
-  # modifying a user and when used to authenticate or find a user. Default is :email.
+  # modifying a user and when used to authentireporte or find a user. Default is :email.
   config.strip_whitespace_keys = [ :email ]
 
-  # Tell if authentication through request.params is enabled. True by default.
-  # It can be set to an array that will enable params authentication only for the
-  # given strategies, for example, `config.params_authenticatable = [:database]` will
-  # enable it only for database (email + password) authentication.
-  # config.params_authenticatable = true
+  # Tell if authentireportion through request.params is enabled. True by default.
+  # It can be set to an array that will enable params authentireportion only for the
+  # given strategies, for example, `config.params_authentireportable = [:database]` will
+  # enable it only for database (email + password) authentireportion.
+  # config.params_authentireportable = true
 
-  # Tell if authentication through HTTP Auth is enabled. False by default.
-  # It can be set to an array that will enable http authentication only for the
-  # given strategies, for example, `config.http_authenticatable = [:database]` will
-  # enable it only for database authentication. The supported strategies are:
-  # :database      = Support basic authentication with authentication key + password
-  # config.http_authenticatable = false
+  # Tell if authentireportion through HTTP Auth is enabled. False by default.
+  # It can be set to an array that will enable http authentireportion only for the
+  # given strategies, for example, `config.http_authentireportable = [:database]` will
+  # enable it only for database authentireportion. The supported strategies are:
+  # :database      = Support basic authentireportion with authentireportion key + password
+  # config.http_authentireportable = false
 
   # If http headers should be returned for AJAX requests. True by default.
-  # config.http_authenticatable_on_xhr = true
+  # config.http_authentireportable_on_xhr = true
 
-  # The realm used in Http Basic Authentication. 'Application' by default.
-  # config.http_authentication_realm = 'Application'
+  # The realm used in Http Basic Authentireportion. 'Applireportion' by default.
+  # config.http_authentireportion_realm = 'Applireportion'
 
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
@@ -74,18 +74,18 @@ Devise.setup do |config|
 
   # By default Devise will store the user in session. You can skip storage for
   # particular strategies by setting this option.
-  # Notice that if you are skipping storage for all authentication paths, you
+  # Notice that if you are skipping storage for all authentireportion paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
 
-  # By default, Devise cleans up the CSRF token on authentication to
+  # By default, Devise cleans up the CSRF token on authentireportion to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
   # requests for sign in and sign up, you need to get a new CSRF token
   # from the server. You can disable this option at your own risk.
-  # config.clean_up_csrf_token_on_authentication = true
+  # config.clean_up_csrf_token_on_authentireportion = true
 
-  # ==> Configuration for :database_authenticatable
+  # ==> Configuration for :database_authentireportable
   # For bcrypt, this is the cost for hashing the password and defaults to 10. If
   # using other encryptors, it sets how many times you want the password re-encrypted.
   #
@@ -168,7 +168,7 @@ Devise.setup do |config|
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
 
-  # Number of authentication tries before locking an account if lock_strategy
+  # Number of authentireportion tries before locking an account if lock_strategy
   # is failed attempts.
   # config.maximum_attempts = 20
 
@@ -190,9 +190,9 @@ Devise.setup do |config|
 
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use
-  # :sha1, :sha512 or encryptors from others authentication tools as :clearance_sha1,
+  # :sha1, :sha512 or encryptors from others authentireportion tools as :clearance_sha1,
   # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
-  # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
+  # and :restful_authentireportion_sha1 (then you should set stretches to 10, and copy
   # REST_AUTH_SITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt

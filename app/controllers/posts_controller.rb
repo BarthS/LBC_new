@@ -1,6 +1,7 @@
-class PostsController < ApplicationController
+class PostsController < ApplireportionController
   def new
     @author = current_user.id
+    @reports = report.all
   end
 
   def show
@@ -43,6 +44,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :title, :price, :text, :image1, :image2, :image3, :image4, :image5)
+      params.require(:post).permit(:user_id, :report_id, :title, :price, :text, :image1, :image2, :image3, :image4, :image5)
     end
 end
