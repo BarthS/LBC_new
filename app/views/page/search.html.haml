@@ -1,0 +1,27 @@
+%h2
+  recherche de "
+  = @recherche
+  "
+
+- def dice_coefficient(a, b)
+  - a_bigrams = a.each_char.each_cons(2).to_set
+  - b_bigrams = b.each_char.each_cons(2).to_set
+  - overlap = (a_bigrams & b_bigrams).size
+  - total = a_bigrams.size + b_bigrams.size
+  - dice  = overlap * 2.0 / total
+  - dice
+
+- h = Hash.new
+- @posts.each do |p|
+  - h[p.id] = dice_coefficient(p.text,@recherche) + 1.5 * dice_coefficient(p.title,@recherche)
+  %p
+
+- tri = h.sort_by { |key, value| value}
+
+- tri.reverse.each do |key, value|
+  - if value > 0.0
+    - @posts.each do |p|
+      - if p.id == key
+        %h2= p.title
+        %p= p.text
+        %p
