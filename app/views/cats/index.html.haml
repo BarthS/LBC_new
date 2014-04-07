@@ -1,3 +1,27 @@
-- @cats.each do |c|
-  %h3
-    = c.name
+%ul.list-group
+  - @cats.each do |c|
+    %a.col-md-6{href: "/cats/#{c.id}"}
+      .panel.panel-default.panel-body
+        .col-md-1
+          %h1{class: "#{c.icon}"}
+        .col-md-4.col-md-offset-1
+          %h1= c.name
+
+
+
+    -# .col-md-8
+    -#   .navbar.navbar-inverse
+    -#     %a.navbar-brand{href: "#"}
+    -#       %span{class: "#{c.icon}"}
+    -#     %a.navbar-brand{href: "/cats/#{c.id}"}
+    -#       = c.name
+    -#     .navbar-brand.pull-right
+
+    -# .panel.panel-default
+    -#   .navbar-brand
+    -#     %h3{class: "#{c.icon}"}
+    -#   .navbar-collapse.collapse.navbar-responsive-collapse
+    -#     = link_to c.name, "/cats/#{c.id}", class: "h1"
+
+
+%script $('#l2').attr('class','active')

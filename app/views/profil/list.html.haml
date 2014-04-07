@@ -1,4 +1,11 @@
+.navbar-form
+  .form-control
+    = form_tag("/page/profil_search", method: "get") do
+      = text_field_tag :q, nil, placeholder: "Search"
+
 - @user.each do |u|
   %p
     = u.nom
     = u.prenom
+
+%script $('#l3').attr('class','active')

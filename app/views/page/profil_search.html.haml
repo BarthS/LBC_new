@@ -1,0 +1,34 @@
+.navbar-form
+  .form-control
+    = form_tag("/page/profil_search", method: "get") do
+      = text_field_tag :q, nil, placeholder: "Search"
+
+
+%h2
+  recherche de "
+  = @recherche
+  "
+
+- def dice_coefficient(a, b)
+  - a_bigrams = a.each_char.each_cons(2).to_set
+  - b_bigrams = b.each_char.each_cons(2).to_set
+  - overlap = (a_bigrams & b_bigrams).size
+  - total = a_bigrams.size + b_bigrams.size
+  - dice  = overlap * 2.0 / total
+  - dice
+
+- h = Hash.new
+- @users.each do |u|
+  - h[u.id] = dice_coefficient(u.nom,@recherche) + dice_coefficient(u.prenom,@recherche)
+  %p
+
+- tri = h.sort_by { |key, value| value}
+
+- tri.reverse.each do |key, value|
+  - if value > 0.0
+    - @users.each do |u|
+      - if u.id == key
+        %h2
+          = u.nom
+          = u.prenom
+        %p

@@ -6,4 +6,9 @@ class PageController < ApplicationController
     @posts = Post.all
     @recherche = params[:q]
   end
+
+  def profil_search
+    @users = User.all
+    @recherche = params[:q]
+  end
 end
