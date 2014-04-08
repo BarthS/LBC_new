@@ -1,11 +1,22 @@
 %h1 Listing posts
 
+
+
+
 - @posts.each do |p|
   - if p.cat_id == @cat.id
-    %h3
-      = link_to p.title, "/posts/#{p.id}"
-      |
-      = p.price
-      €
-      |
-      = link_to 'Destroy', post_path(p), method: :delete, data: { confirm: 'Are you sure?' }
+    .media.col-md-12
+      %a.pull-left{href: "#"}
+        %img.media-object{alt: "...", src: "..."}/
+      .media-body
+        %h4.media-heading
+          = p.title
+          = p.price
+
+    -# %h3
+    -#   = link_to p.title, "/posts/#{p.id}"
+    -#   |
+    -#   = p.price
+    -#   €
+    -#   |
+    -#   = link_to 'Destroy', post_path(p), method: :delete, data: { confirm: 'Are you sure?' }

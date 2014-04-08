@@ -51,24 +51,34 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{href: "#"}
+          %a.navbar-brand{href: "/page/index"}
             .glyphicon.glyphicon-chevron-left
             .glyphicon.glyphicon-shopping-cart
             .glyphicon.glyphicon-chevron-right
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             %li{id: "l1"}
-              %a{href: "/page/index"} Accueil
+              %a{href: "/page/index"}
+                .glyphicon.glyphicon-home
+                Accueil
             %li{id: "l2"}
-              %a{href: "/cats/index"} Categories
+              %a{href: "/cats/index"}
+                .glyphicon.glyphicon-th
+                Categories
             %li{id: "l3"}
-              %a{href: "/profil/list"} Membres
+              %a{href: "/profil/list"}
+                .glyphicon.glyphicon-user
+                Membres
             %li{id: "l4"}
-              %a{href: "/reports/index"} Admin Panel
-          .navbar-form.navbar-left
-            .form-control
-              = form_tag("/page/search", method: "get") do
-                = text_field_tag :q, nil, placeholder: "Search"
+              %a{href: "/reports/index"}
+                .glyphicon.glyphicon-lock
+                Admin Panel
+
+
+          %form.navbar-form.navbar-left{action: "/page/search", method: "get"}
+            %input.form-control.col-lg-8{id: "q", name: "q", placeholder: "Search", type: "text"}
+
+
           %p.navbar-text.pull-right
             - if user_signed_in?
               Logged in as

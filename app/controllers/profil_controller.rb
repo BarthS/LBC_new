@@ -3,6 +3,6 @@ class ProfilController < ApplicationController
     @user = User.find(params[:id])
   end
   def list
-    @user = User.all
+    @users = User.all
   end
 end

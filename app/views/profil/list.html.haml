@@ -1,11 +1,21 @@
-.navbar-form
-  .form-control
-    = form_tag("/page/profil_search", method: "get") do
-      = text_field_tag :q, nil, placeholder: "Search"
+%form.col-md-8{action: "/page/profil_search", method: "get"}
+  %input.form-control{id: "q", name: "q", placeholder: "Search", type: "text"}
 
-- @user.each do |u|
-  %p
-    = u.nom
-    = u.prenom
+%table.table.table-striped.table-hover
+  %thead
+  %tbody
+    - @users.each do |u|
+      %tr
+        %td
+        %td
+          - if u.avatar?
+            = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
+        %td= u.prenom
+        %td= u.nom
+        %td= u.promo
+        %td= u.email
+        %td
+          %a.glyphicon.glyphicon-user{href: "/profil/#{u.id}"}
+        %td
 
 %script $('#l3').attr('class','active')
