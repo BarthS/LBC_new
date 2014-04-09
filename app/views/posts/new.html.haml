@@ -1,9 +1,13 @@
-%h1 New Post
+%h1 Nouvelle annonce :
 = form_for :post, url: posts_path do |f|
+  
+
   %p
-    = f.label :title
+    = f.label :Titre
     %br/
     = f.text_field :title
+
+
   %p
     = f.label :Catégorie
     %br/
@@ -17,6 +21,7 @@
     = f.label :text
     %br/
     = f.text_area :text
+  
   %p
     = f.label :image1
     %br/
