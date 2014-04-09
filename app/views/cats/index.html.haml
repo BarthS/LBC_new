@@ -1,14 +1,14 @@
 
 - @cats.each do |c|
-  %a.col-md-6{href: "/cats/#{c.id}"}
+  %a.col-md-4{href: "/cats/#{c.id}"}
     .panel.panel-default.panel-body
       .col-md-1
-        %h1{class: "#{c.icon}"}
-      .col-md-3.col-md-offset-1
-        %h1
+        %h2{class: "#{c.icon}"}
+      .col-md-2.col-md-offset-1
+        %h2
           = c.name
       .col-md-1.pull-right
-        %h1
+        %h2
           = c.posts.count
 
 

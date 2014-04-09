@@ -1,21 +1,55 @@
-%form.col-md-8{action: "/page/profil_search", method: "get"}
+%form{action: "/page/profil_search", method: "get"}
   %input.form-control{id: "q", name: "q", placeholder: "Search", type: "text"}
 
-%table.table.table-striped.table-hover
-  %thead
-  %tbody
-    - @users.each do |u|
+.panel.panel-primary.panel-body.YYY
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td
-        %td
-          - if u.avatar?
-            = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
-        %td= u.prenom
-        %td= u.nom
-        %td= u.promo
-        %td= u.email
-        %td
-          %a.glyphicon.glyphicon-user{href: "/profil/#{u.id}"}
-        %td
+        %th
+        %th
+        %th
+          Prénom
+        %th
+          Nom
+        %th
+          Promo
+        %th
+          Mail
+        %th
+          Profil
+
+
+    %tbody
+      - @users.each do |u|
+        %tr
+          %td
+          %td
+            - if u.avatar?
+              = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
+
+          %td.XXX
+            = u.prenom
+          %td.XXX
+            = u.nom
+          %td.XXX
+            = u.promo
+          %td.XXX
+            = u.email
+          %td
+            %a{href: "/profil/#{u.id}"}
+              .glyphicon.glyphicon-user.h4
+
+
+
 
 %script $('#l3').attr('class','active')
+
+:css
+  .XXX {
+    display:table-cell;
+    vertical-align:middle;
+    float:none;
+  }
+  .YYY {
+    padding:0px;
+  }

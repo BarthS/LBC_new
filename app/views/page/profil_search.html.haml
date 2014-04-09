@@ -1,7 +1,6 @@
-.navbar-form
-  .form-control
-    = form_tag("/page/profil_search", method: "get") do
-      = text_field_tag :q, nil, placeholder: "Search"
+
+%form{action: "/page/profil_search", method: "get"}
+  %input.form-control{id: "q", name: "q", placeholder: "Search", type: "text"}
 
 
 %h2
@@ -24,11 +23,33 @@
 
 - tri = h.sort_by { |key, value| value}
 
-- tri.reverse.each do |key, value|
-  - if value > 0.0
-    - @users.each do |u|
-      - if u.id == key
-        %h2
-          = u.nom
-          = u.prenom
-        %p
+
+.list-group
+  - tri.reverse.each do |key, value|
+    - if value > 0.0
+      - @users.each do |u|
+        - if u.id == key
+          .list-group-item
+
+
+            - if u.avatar?
+              = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
+
+            .col-md-2
+              = u.prenom
+            .col-md-2
+              = u.nom
+            .col-md-2
+              = u.promo
+            .col-md-2
+              = u.email
+            %a.col-md-2{href: "/profil/#{u.id}"}
+              .glyphicon.glyphicon-user.h4
+            %br
+
+:css
+  .col-md-2 {
+      float:none;
+      display:inline-block;
+      vertical-align:middle;
+  }
