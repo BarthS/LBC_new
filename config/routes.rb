@@ -17,8 +17,6 @@ LBCNew::Application.routes.draw do
   get "reports/new"
   get "reports/show"
   get "reports/index"
-  get "page/posts"
-  get "page/posts/new"
 
   resources :cats
   resources :reports
