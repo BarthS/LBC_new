@@ -1,17 +1,59 @@
-%h1 Listing posts
+.bs-docs-section
+  .row
+    .col-md-12
+      .page-header
+        %h1#type
+          = @cat.name
 
 
+.row
+  .col-md-7
+    %a{href: "/posts/new"}
+      %button.btn.btn-primary{type: "button"}
+        .glyphicon.glyphicon-plus
+        Nouvelle annonce
+  .col-md-1
+    .glyphicon.glyphicon-search.h4.pull-right
+  .col-md-4
+    %form{action: "/page/search", method: "get"}
+      %input.form-control{id: "q", name: "q", placeholder: "Rechercher une annonce", type: "text"}
 
+%br
 
-- @posts.each do |p|
-  - if p.cat_id == @cat.id
-    .media.col-md-12
-      %a.pull-left{href: "#"}
-        %img.media-object{alt: "...", src: "..."}/
-      .media-body
-        %h4.media-heading
-          = p.title
-          = p.price
+.panel.panel-default.panel-body.no-padding
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %th
+        %th
+        %th
+          Titre
+        %th
+          Prix
+        %th
+          Auteur
+        %th
+          Annonce
+    %body
+      - @posts.each do |p|
+        - if p.cat_id == @cat.id
+          - @author = User.find(p.user_id)
+          %tr
+            %td
+            %td
+              = image_tag p.image1.url(:square), width: "50px", height: "50px", class: "img-rounded"
+            %td
+              = p.title
+            %td
+              = p.price
+              = "€"
+            %td
+              = @author.prenom
+              = @author.nom
+            %td
+              %a{href: "/posts/#{p.id}"}
+                .glyphicon.glyphicon-list-alt.h4
+            %td
 
     -# %h3
     -#   = link_to p.title, "/posts/#{p.id}"

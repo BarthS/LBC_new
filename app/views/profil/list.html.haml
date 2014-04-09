@@ -5,11 +5,11 @@
     .glyphicon.glyphicon-search.h4.pull-right
   .col-md-4
     %form{action: "/page/profil_search", method: "get"}
-      %input.form-control{id: "q", name: "q", placeholder: "Chercher un membre", type: "text"}
+      %input.form-control{id: "q", name: "q", placeholder: "Rechercher un membre", type: "text"}
 
 %br
 
-.panel.panel-default.panel-body.YYY
+.panel.panel-default.panel-body.no-padding
   %table.table.table-striped.table-hover
     %thead
       %tr
@@ -51,12 +51,3 @@
 
 
 %script $('#l3').attr('class','active')
-
-:css
-  .YYY {
-    padding:0px;
-  }
-  .push-down {
-    float:none;
-    vertical-align: bottom;
-  }
