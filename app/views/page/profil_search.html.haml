@@ -1,7 +1,11 @@
-
-%form{action: "/page/profil_search", method: "get"}
-  %input.form-control{id: "q", name: "q", placeholder: "Search", type: "text"}
-
+.row
+  .col-md-7
+  .col-md-1
+    .glyphicon.glyphicon-search.h4.pull-right
+  .col-md-4
+    %form{action: "/page/profil_search", method: "get"}
+      %input.form-control{id: "q", name: "q", placeholder: "Chercher un membre", type: "text"}
+%br
 
 %h2
   recherche de "
@@ -29,27 +33,24 @@
     - if value > 0.0
       - @users.each do |u|
         - if u.id == key
-          .list-group-item
-
+          %a.list-group-item{href: "/profil/#{u.id}"}
 
             - if u.avatar?
               = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
 
-            .col-md-2
+            .col-md-2.col-md-offset-2.mid
               = u.prenom
-            .col-md-2
+            .col-md-2.mid
               = u.nom
-            .col-md-2
+            .col-md-2.mid
               = u.promo
-            .col-md-2
+            .col-md-2.mid
               = u.email
-            %a.col-md-2{href: "/profil/#{u.id}"}
-              .glyphicon.glyphicon-user.h4
-            %br
 
 :css
-  .col-md-2 {
+  .mid {
       float:none;
       display:inline-block;
       vertical-align:middle;
+      color: #ffffff;
   }

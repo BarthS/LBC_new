@@ -8,7 +8,7 @@ LBCNew::Application.routes.draw do
   get "cats/edit"
   get "page/index"
   get "page/search"
-  get "/page/profil_search"
+  get "page/profil_search"
   get "profil/list"
   get "posts/new"
   get "posts/index"
@@ -17,8 +17,6 @@ LBCNew::Application.routes.draw do
   get "reports/new"
   get "reports/show"
   get "reports/index"
-  get "page/posts"
-  get "page/posts/new"
 
   resources :cats
   resources :reports
