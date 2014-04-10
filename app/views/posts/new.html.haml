@@ -1,3 +1,24 @@
+
+
+/ %form.form-horizontal
+/   %fieldset
+/     %legend Nouvelle annonce
+/     .form-group
+/       %label.col-lg-2.control-label{for: "inputEmail"} Titre
+/       .col-lg-6
+/         %input#inputEmail.form-control{placeholder: "Titre", type: "text"}/
+/     .form-group
+/       %label.col-lg-2.control-label{for: "inputPassword"} Password
+/       .col-lg-10
+/         %input#inputPassword.form-control{placeholder: "Password", type: "password"}/
+/         .checkbox
+/           %label
+/             %input{type: "checkbox"}/
+/             Checkbox
+    
+
+
+
 %h1 Nouvelle annonce :
 = form_for :post, url: posts_path do |f|
   

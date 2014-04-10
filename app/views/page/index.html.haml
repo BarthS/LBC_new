@@ -10,28 +10,26 @@
 
 
 .row{style: "text-align:center;"}
+  .col-md-12
+    %a{href: "/cats/index"}
+      %button.btn.btn-primary.btn-lg.btn-idx.pull-left{type: "button"}
+        / %a.btn.btn-default{href: "#"}
+        .glyphicon.glyphicon-eye-open
+        %br
+        Parcourir les annonces
+    %a{href: "/posts/new"}
+      %button.btn.btn-primary.btn-lg.btn-idx{type: "button"}
+        / %a.btn.btn-default{href: "#"}
+        .glyphicon.glyphicon-edit
+        %br
+        Déposer une annonce
+    %button.btn.btn-primary.btn-lg.btn-idx.pull-right{type: "button"}
+      / %a.btn.btn-default{href: "#"}
+      .glyphicon.glyphicon-search
+      %form{action: "/page/search", method: "get"}
+        %input.form-control{id: "q", name: "q", placeholder: "Rechercher une annonce particulière", type: "text"}
 
-  %button.btn.btn-primary.btn-lg.btn-idx{type: "button"}
-    / %a.btn.btn-default{href: "#"}
-    .glyphicon.glyphicon-eye-open
-    %div
-      %a{href: "/cats/index"} Parcourir les annonces
-  %button.btn.btn-primary.btn-lg.btn-idx{type: "button"}      
-    / %a.btn.btn-default{href: "#"}
-    .glyphicon.glyphicon-edit 
-    %div
-      %a{href: "/posts/new"} Déposer une annonce  
-  %button.btn.btn-primary.btn-lg.btn-idx{type: "button"}    
-    / %a.btn.btn-default{href: "#"}
-    .glyphicon.glyphicon-search
-    %form{action: "/page/search", method: "get"}
-      %input.form-control{id: "q", name: "q", placeholder: "Rechercher un article particulier", type: "text"}
+
 
 
 %script $('#l1').attr('class','active')
-
-:css
-  .btn-idx {
-    height: 100px;
-    width: 300px;
-  }

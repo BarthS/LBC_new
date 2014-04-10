@@ -1,7 +1,15 @@
-%form{action: "/page/profil_search", method: "get"}
-  %input.form-control{id: "q", name: "q", placeholder: "Search", type: "text"}
 
-.panel.panel-primary.panel-body.YYY
+.row
+  .col-md-7
+  .col-md-1
+    .glyphicon.glyphicon-search.h4.pull-right
+  .col-md-4
+    %form{action: "/page/profil_search", method: "get"}
+      %input.form-control{id: "q", name: "q", placeholder: "Rechercher un membre", type: "text"}
+
+%br
+
+.panel.panel-default.panel-body.no-padding
   %table.table.table-striped.table-hover
     %thead
       %tr
@@ -27,13 +35,13 @@
             - if u.avatar?
               = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
 
-          %td.XXX
+          %td
             = u.prenom
-          %td.XXX
+          %td
             = u.nom
-          %td.XXX
+          %td
             = u.promo
-          %td.XXX
+          %td
             = u.email
           %td
             %a{href: "/profil/#{u.id}"}
@@ -43,13 +51,3 @@
 
 
 %script $('#l3').attr('class','active')
-
-:css
-  .XXX {
-    display:table-cell;
-    vertical-align:middle;
-    float:none;
-  }
-  .YYY {
-    padding:0px;
-  }

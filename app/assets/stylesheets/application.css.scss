@@ -12,7 +12,23 @@
  *= require_tree .
  */
 
-
+.btn-idx {
+  height: 100px;
+  width: 350px;
+  margin: 5px;
+}
+.btn-idx a {
+  color: #ffffff;
+}
+.mid {
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+    color: #ffffff;
+}
+.no-padding {
+  padding:0px;
+}
 // @import url("http://bootswatch.com/flatly/bootstrap.css");
 @import url("http://bootswatch.com/amelia/bootstrap.css");
 // @import "bootstrap";
