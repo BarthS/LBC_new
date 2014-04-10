@@ -1,7 +1,10 @@
-%h2
-  recherche de "
-  = @recherche
-  "
+.row
+  .col-md-12
+    .page-header
+      %h1
+        recherche de "
+        = @recherche
+        "
 
 - def dice_coefficient(a, b)
   - a_bigrams = a.each_char.each_cons(2).to_set
@@ -25,7 +28,10 @@
         - if p.id == key
           %a.list-group-item{href: "/posts/#{p.id}"}
 
-            = image_tag p.image1.url(:square), width: "50px", height: "50px", class: "img-rounded"
+            - if p.image1?
+              = image_tag p.image1.url(:square), width: "50px", height: "50px", class: "img-rounded"
+            - else
+              = image_tag "/images/avt/default-square.png", width: "50px", height: "50px", class: "img-rounded"
 
             .col-md-2.mid
               = p.title
