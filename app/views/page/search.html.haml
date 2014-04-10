@@ -13,7 +13,7 @@
 
 - h = Hash.new
 - @posts.each do |p|
-  - h[p.id] = dice_coefficient(p.text,@recherche) + 1.5 * dice_coefficient(p.title,@recherche)
+  - h[p.id] = dice_coefficient(p.text,@recherche) + 2 * dice_coefficient(p.title,@recherche)
   %p
 
 - tri = h.sort_by { |key, value| value}
@@ -23,22 +23,12 @@
     - if value > 0.0
       - @posts.each do |p|
         - if p.id == key
-          .list-group-item
+          %a.list-group-item{href: "/posts/#{p.id}"}
+
             = image_tag p.image1.url(:square), width: "50px", height: "50px", class: "img-rounded"
 
-            .col-md-2
+            .col-md-2.mid
               = p.title
-            .col-md-2
+            .col-md-2.mid
               = p.price
               = "€"
-
-            %a.col-md-2{href: "/posts/#{p.id}"}
-              .glyphicon.glyphicon-user.h4.pull-right
-            %br
-
-:css
-  .col-md-2 {
-      float:none;
-      display:inline-block;
-      vertical-align:middle;
-  }
