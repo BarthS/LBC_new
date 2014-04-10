@@ -1,16 +1,15 @@
-.bs-docs-section
-  .row
-    .col-md-12
-      .page-header
-        %h1#type
-          = @cat.name
+.row
+  .col-md-12
+    .page-header
+      %h1#type
+        = @cat.name
 
 
 .row
   .col-md-7
     %a{href: "/posts/new"}
       %button.btn.btn-primary{type: "button"}
-        .glyphicon.glyphicon-plus
+        .glyphicon.glyphicon-edit
         Nouvelle annonce
   .col-md-1
     .glyphicon.glyphicon-search.h4.pull-right
