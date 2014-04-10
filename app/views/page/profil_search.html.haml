@@ -1,4 +1,13 @@
 .row
+  .col-md-12
+    .page-header
+      %h1
+        recherche de "
+        = @recherche
+        "
+
+
+.row
   .col-md-7
   .col-md-1
     .glyphicon.glyphicon-search.h4.pull-right
@@ -6,11 +15,6 @@
     %form{action: "/page/profil_search", method: "get"}
       %input.form-control{id: "q", name: "q", placeholder: "Rechercher un membre", type: "text"}
 %br
-
-%h2
-  recherche de "
-  = @recherche
-  "
 
 - def dice_coefficient(a, b)
   - a_bigrams = a.each_char.each_cons(2).to_set
@@ -37,6 +41,8 @@
 
             - if u.avatar?
               = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
+            - else
+              = image_tag "/images/avt/default-square.png", width: "50px", height: "50px", class: "img-circle"
 
             .col-md-2.col-md-offset-2.mid
               = u.prenom
@@ -46,11 +52,3 @@
               = u.promo
             .col-md-2.mid
               = u.email
-
-:css
-  .mid {
-      float:none;
-      display:inline-block;
-      vertical-align:middle;
-      color: #ffffff;
-  }
