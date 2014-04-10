@@ -1,7 +1,13 @@
+-# .row
+-#   .col-md-12
+-#     .page-header
+
+%br
+%br
 
 - @cats.each do |c|
   %a.col-md-4{href: "/cats/#{c.id}"}
-    .panel.panel-default.panel-body
+    .panel.panel-default.panel-body.cat-class
       .col-md-1
         %h2{class: "#{c.icon}"}
       .col-md-2.col-md-offset-1
@@ -10,6 +16,14 @@
       .col-md-1.pull-right
         %h2
           = c.posts.count
+
+.row
+  .col-md-12
+    .cat-idx-ftr
+      %a{href: "/posts/new"}
+        %button.btn.btn-primary{type: "button"}
+          .glyphicon.glyphicon-edit
+          Nouvelle annonce
 
 
 
@@ -29,3 +43,14 @@
 
 
 %script $('#l2').attr('class','active')
+
+:css
+  .cat-class:hover {
+    color: #e8d069;
+    background-color: #15b5c1;
+  }
+  .cat-idx-ftr {
+    padding-top: 9px;
+    margin: 20px 0px 40px 0px;
+    border-top: 1px solid #0d747c;
+  }
