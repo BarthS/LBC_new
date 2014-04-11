@@ -1,0 +1,11 @@
+- if current_user.try(:admin?)
+
+  - @users.each do |u|
+    - if @param_val = u.id
+      - u.update_attribute :val, true
+
+  %a{href: "/profil/#{@param_val}"}
+    Retour
+
+- else
+  Erreur

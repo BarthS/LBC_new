@@ -20,12 +20,13 @@
             Postée par
             %strong
             = @author.nom
-        .panel-body
-          %h4
-            %strong
-            = @post.text
+        - if user_signed_in? && current_user.try(:val?)
+          .panel-body
+            %h4
+              %strong
+              = @post.text
 
-  - if user_signed_in?
+  - if user_signed_in? && current_user.try(:val?)
     .col-md-12
       .col-md-4
         %br
@@ -87,7 +88,7 @@
 
 -# = link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
 
-- if user_signed_in?
+- if user_signed_in? && current_user.try(:val?)
   %h2 Comments
   - @post.comments.each do |comment|
 

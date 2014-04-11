@@ -1,59 +1,64 @@
-.row
-  .col-md-12
-    .page-header
-      %h1
-        Membres
-.row
-  .col-md-7
-  .col-md-1
-    .glyphicon.glyphicon-search.h4.pull-right
-  .col-md-4
-    %form{action: "/page/profil_search", method: "get"}
-      %input.form-control{id: "q", name: "q", placeholder: "Rechercher un membre", type: "text"}
+- if user_signed_in? && current_user.try(:val?)
 
-%br
+  .row
+    .col-md-12
+      .page-header
+        %h1
+          Membres
+  .row
+    .col-md-7
+    .col-md-1
+      .glyphicon.glyphicon-search.h4.pull-right
+    .col-md-4
+      %form{action: "/page/profil_search", method: "get"}
+        %input.form-control{id: "q", name: "q", placeholder: "Rechercher un membre", type: "text"}
 
-.panel.panel-default.panel-body.no-padding
-  %table.table.table-striped.table-hover
-    %thead
-      %tr
-        %th
-        %th
-        %th
-          Prénom
-        %th
-          Nom
-        %th
-          Promo
-        %th
-          Mail
-        %th
-          Profil
+  %br
 
-
-    %tbody
-      - @users.each do |u|
+  .panel.panel-default.panel-body.no-padding
+    %table.table.table-striped.table-hover
+      %thead
         %tr
-          %td
-          %td
-            - if u.avatar?
-              = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
-            - else
-              = image_tag "/images/avt/default-square.png", width: "50px", height: "50px", class: "img-circle"
-
-          %td
-            = u.prenom
-          %td
-            = u.nom
-          %td
-            = u.promo
-          %td
-            = u.email
-          %td
-            %a{href: "/profil/#{u.id}"}
-              .glyphicon.glyphicon-user.h4
+          %th
+          %th
+          %th
+            Prénom
+          %th
+            Nom
+          %th
+            Promo
+          %th
+            Mail
+          %th
+            Profil
 
 
+      %tbody
+        - @users.each do |u|
+          %tr
+            %td
+            %td
+              - if u.avatar?
+                = image_tag u.avatar.url(:square), width: "50px", height: "50px", class: "img-circle"
+              - else
+                = image_tag "/images/avt/default-square.png", width: "50px", height: "50px", class: "img-circle"
+
+            %td
+              = u.prenom
+            %td
+              = u.nom
+            %td
+              = u.promo
+            %td
+              = u.email
+            %td
+              %a{href: "/profil/#{u.id}"}
+                .glyphicon.glyphicon-user.h4
 
 
-%script $('#l3').attr('class','active')
+
+
+  %script $('#l3').attr('class','active')
+
+- else
+  Accès refusé

@@ -1,111 +1,117 @@
-.row
-  .col-md-12
-    .page-header
+- if user_signed_in? && current_user.try(:val?)
 
-.row
-  .col-md-12
-    .col-md-3
-      - if @user.avatar?
-        = image_tag @user.avatar.url(:medium), height: "250px", width: "250px",class: "img-thumbnail img-rounded"
-      - else
-        = image_tag "/images/avt/default-medium.png", height: "250px", width: "250px",class: "img-thumbnail img-rounded"
-      %p
-      -# .panel.panel-info
-      -#   .panel-heading
-      -#     %h3.panel-title Paramètres de votre compte
-      -#   .panel-body
-      -#     .row
-      -#       .col-md-12
-      -#         .col-md-5
-      -#           %a{href: "/users/edit"}
-      -#             %h4.glyphicon.glyphicon-edit
-      -#             Modifier
-      -#         .col-md-6
-      -#           %a{href: "/users/sign_in"}
-      -#             %h4.glyphicon.glyphicon-remove
-      -#             Supprimer
-      -#
-      -# .panel.panel-primary
-      -#   .panel-heading
-      -#     %h3.panel-title Admin Panel
-      -#   .panel-body
-      -#     %h1= "BLA BLA"
-    .col-md-6
-      .panel.panel-default
-        .panel-body
-          .row
-            %h2
-              .col-md-10
-                .col-md-2
-                  .glyphicon.glyphicon-user
-                .col-md-8
-                  = @user.nom
-                  = @user.prenom
-          .row
-            %h3
-              .col-md-10
-                .col-md-2
-                  .glyphicon.glyphicon-briefcase
-                .col-md-8
-                  = @user.promo
+  .row
+    .col-md-12
+      .page-header
 
-      .panel.panel-default
-        .panel-body
-          .row
-            %h3
-              .col-md-10
-                .col-md-2
-                  .glyphicon.glyphicon-envelope
-                .col-md-8
-                  = @user.email
-
-          .row
-            %h3
-              .col-md-10
-                .col-md-2
-                  .glyphicon.glyphicon-earphone
-                .col-md-8
-                  = @user.tel
-
-
-      .panel.panel-default.panel-body.no-padding
-        %table.table.table-striped.table-hover
-          %thead
-            %tr
-              %th
-                Mes annonces
-              %th
-                Parcourir
-          %tbody
-            - @posts.each do |p|
-              - if p.user_id = @user.id
-                %tr
-                  %td
-                    %strong
-                    =p.title
-                  %td
-                    %a{href: "/posts/#{p.id}"}
-                      .glyphicon.glyphicon-list-alt.h4
-    .col-md-3
-      - if @user.id === current_user.id || current_user.admin?
-        .panel.panel-info
-          .panel-heading
-            %h3.panel-title Owner Box
+  .row
+    .col-md-12
+      .col-md-3
+        - if @user.avatar?
+          = image_tag @user.avatar.url(:medium), height: "250px", width: "250px",class: "img-thumbnail img-rounded"
+        - else
+          = image_tag "/images/avt/default-medium.png", height: "250px", width: "250px",class: "img-thumbnail img-rounded"
+        %p
+        -# .panel.panel-info
+        -#   .panel-heading
+        -#     %h3.panel-title Paramètres de votre compte
+        -#   .panel-body
+        -#     .row
+        -#       .col-md-12
+        -#         .col-md-5
+        -#           %a{href: "/users/edit"}
+        -#             %h4.glyphicon.glyphicon-edit
+        -#             Modifier
+        -#         .col-md-6
+        -#           %a{href: "/users/sign_in"}
+        -#             %h4.glyphicon.glyphicon-remove
+        -#             Supprimer
+        -#
+        -# .panel.panel-primary
+        -#   .panel-heading
+        -#     %h3.panel-title Admin Panel
+        -#   .panel-body
+        -#     %h1= "BLA BLA"
+      .col-md-6
+        .panel.panel-default
           .panel-body
             .row
-              .col-md-12
-                .col-md-5
-                  %a{href: "/users/edit"}
-                    %h5.glyphicon.glyphicon-edit Modifier/Supprimer
-      - if current_user.try(:admin?)
-        .panel.panel-primary
-          .panel-heading
-            %h3.panel-title Nouvel Admin
+              %h2
+                .col-md-10
+                  .col-md-2
+                    .glyphicon.glyphicon-user
+                  .col-md-8
+                    = @user.nom
+                    = @user.prenom
+            .row
+              %h3
+                .col-md-10
+                  .col-md-2
+                    .glyphicon.glyphicon-briefcase
+                  .col-md-8
+                    = @user.promo
+
+        .panel.panel-default
           .panel-body
             .row
-              .col-md-12
-                .col-md-5
-                  %h5.glyphicon.glyphicon-check Valider
-                .col-md-5
-                  %a{href: "/page/new_admin/?a=#{@user.id}"}
-                    %h5.glyphicon.glyphicon-lock Administrateur
+              %h3
+                .col-md-10
+                  .col-md-2
+                    .glyphicon.glyphicon-envelope
+                  .col-md-8
+                    = @user.email
+
+            .row
+              %h3
+                .col-md-10
+                  .col-md-2
+                    .glyphicon.glyphicon-earphone
+                  .col-md-8
+                    = @user.tel
+
+
+        .panel.panel-default.panel-body.no-padding
+          %table.table.table-striped.table-hover
+            %thead
+              %tr
+                %th
+                  Mes annonces
+                %th
+                  Parcourir
+            %tbody
+              - @posts.each do |p|
+                - if p.user_id = @user.id
+                  %tr
+                    %td
+                      %strong
+                      =p.title
+                    %td
+                      %a{href: "/posts/#{p.id}"}
+                        .glyphicon.glyphicon-list-alt.h4
+      .col-md-3
+        - if @user.id === current_user.id || current_user.admin?
+          .panel.panel-info
+            .panel-heading
+              %h3.panel-title Owner Box
+            .panel-body
+              .row
+                .col-md-12
+                  .col-md-5
+                    %a{href: "/users/edit"}
+                      %h5.glyphicon.glyphicon-edit Modifier/Supprimer
+        - if current_user.try(:admin?)
+          .panel.panel-primary
+            .panel-heading
+              %h3.panel-title Nouvel Admin
+            .panel-body
+              .row
+                .col-md-12
+                  .col-md-5
+                    %a{href: "/page/validation/?a=#{@user.id}"}
+                      %h5.glyphicon.glyphicon-check Valider
+                  .col-md-5
+                    %a{href: "/page/new_admin/?a=#{@user.id}"}
+                      %h5.glyphicon.glyphicon-lock Administrateur
+
+- else
+  Accès refusé 

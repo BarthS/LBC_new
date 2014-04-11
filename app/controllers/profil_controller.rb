@@ -5,7 +5,6 @@ class ProfilController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.all
-    @param_admin = params[:a]
   end
   def list
     @users = User.all

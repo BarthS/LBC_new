@@ -10,6 +10,7 @@ LBCNew::Application.routes.draw do
   get "page/search"
   get "page/profil_search"
   get "page/new_admin"
+  get "page/validation"
   get "profil/list"
   get "posts/new"
   get "posts/index"
