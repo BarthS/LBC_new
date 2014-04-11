@@ -43,10 +43,14 @@
           %h3
             %strong
             = @post.title
+            .badge.pull-right
+              = @post.price
+              ="€"
           %h5
             Postée par
             %strong
             = @author.nom
+
         - if user_signed_in? && current_user.try(:val?)
           .panel-body
             %h4

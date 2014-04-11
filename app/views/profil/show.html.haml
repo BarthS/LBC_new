@@ -61,7 +61,7 @@
                   Parcourir
             %tbody
               - @posts.each do |p|
-                - if p.user_id = @user.id
+                - if p.user_id === @user.id
                   %tr
                     %td
                       %strong
@@ -70,7 +70,7 @@
                       %a{href: "/posts/#{p.id}"}
                         .glyphicon.glyphicon-list-alt.h4
       .col-md-3
-        - if @user.id === current_user.id || current_user.admin?
+        - if @user.id === current_user.id
           .panel.panel-info
             .panel-heading
               %h3.panel-title Owner Box
@@ -83,7 +83,7 @@
         - if current_user.try(:admin?)
           .panel.panel-primary
             .panel-heading
-              %h3.panel-title Nouvel Admin
+              %h3.panel-title Admin Box
             .panel-body
               .row
                 .col-md-12
