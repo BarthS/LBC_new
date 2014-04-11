@@ -9,10 +9,6 @@ class PostsController < ApplicationController
     @author = User.find(@post.user_id)
   end
 
-  def index
-    @posts = Post.all
-  end
-
   def edit
     @post = Post.find(params[:id])
     @cats = Cat.all

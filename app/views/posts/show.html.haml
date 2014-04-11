@@ -56,7 +56,6 @@
       - if user_signed_in? && current_user.try(:val?)
         .panel.panel-default
           .panel-body
-            -# .row
             .col-md-12
               .col-md-3
                 - if @post.image2?
@@ -76,14 +75,6 @@
           %h2 Commentaires
           - @post.comments.each do |comment|
 
-            -# %p
-            -#   %strong User:
-            -#   - @user = User.find(comment.user_id)
-            -#   = @user.nom
-            -#
-            -# %p
-            -#   %strong Comment:
-            -#   = comment.text
 
             %blockquote
               %p= comment.text
@@ -103,97 +94,3 @@
 
               %p
                 = f.submit
-
-
-  -# - if user_signed_in? && current_user.try(:val?)
-  -#   .col-md-12
-  -#     .col-md-4
-  -#       %br
-  -#       %button.btn.btn-primary.btn-lg{type: "button"} Signaler cette annonce
-  -#       %br
-  -#       %br
-  -#       .panel.panel-info
-  -#         .panel-heading
-  -#           %h3.panel-title Author Box
-  -#         .panel-body
-  -#           .row
-  -#             .col-md-12
-  -#               .col-md-4
-  -#                 %a{href: "/posts/#{@post.id}/edit/"}
-  -#                   %h4.glyphicon.glyphicon-edit
-  -#                   Modifier
-  -#               .col-md-4
-  -#                 %a{href: ""}
-  -#                   %h4.glyphicon.glyphicon-warning-sign
-  -#                   Signaler
-  -#               .col-md-4
-  -#                 %a{href: ""}
-  -#                   %h4.glyphicon.glyphicon-folder-open
-  -#                   Archiver
-
-      / .panel.panel-default
-      /   .panel-body
-      /     %p
-      /       %strong Cat_ID:
-      /       =@post.cat_id
-
-      /     %p
-      /       %strong Author:
-      /       = @author.nom
-
-      /     %p
-      /       %strong Title:
-      /       = @post.title
-      /     %p
-      /       %strong Price:
-      /       = @post.price
-      /     %p
-      /       %strong Text:
-      /       = @post.text
-
-
-/ %p
-/   - if @post.image2?
-/     = image_tag @post.image2.url(:thumb)
-/ %p
-/   - if @post.image3?
-/     = image_tag @post.image3.url(:thumb)
-/ %p
-/   - if @post.image4?
-/     = image_tag @post.image4.url(:thumb)
-/ %p
-/   - if @post.image5?
-/     = image_tag @post.image5.url(:thumb)
-
--# = link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
-
--# - if user_signed_in? && current_user.try(:val?)
--#   %h2 Commentaires
--#   - @post.comments.each do |comment|
--#
--#     -# %p
--#     -#   %strong User:
--#     -#   - @user = User.find(comment.user_id)
--#     -#   = @user.nom
--#     -#
--#     -# %p
--#     -#   %strong Comment:
--#     -#   = comment.text
--#
--#     %blockquote
--#       %p= comment.text
--#       %small
--#         - @user = User.find(comment.user_id)
--#         = @user.nom
--#
--#
--#
--#
--#   %h3 Ajouter un commentaire
--#   = form_for([@post, @post.comments.build]) do |f|
--#
--#     %p
--#       = f.text_area :text
--#
--#     %p
--#       = f.submit

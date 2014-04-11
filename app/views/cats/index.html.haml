@@ -4,8 +4,7 @@
       %h1
         Catégories
 
--# %br
--# %br
+
 
 - @cats.each do |c|
   %a.col-md-4{href: "/cats/#{c.id}"}
@@ -29,19 +28,7 @@
 
 
 
-    -# .col-md-8
-    -#   .navbar.navbar-inverse
-    -#     %a.navbar-brand{href: "#"}
-    -#       %span{class: "#{c.icon}"}
-    -#     %a.navbar-brand{href: "/cats/#{c.id}"}
-    -#       = c.name
-    -#     .navbar-brand.pull-right
 
-    -# .panel.panel-default
-    -#   .navbar-brand
-    -#     %h3{class: "#{c.icon}"}
-    -#   .navbar-collapse.collapse.navbar-responsive-collapse
-    -#     = link_to c.name, "/cats/#{c.id}", class: "h1"
 
 
 %script $('#l2').attr('class','active')

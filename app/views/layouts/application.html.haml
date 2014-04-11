@@ -1,48 +1,11 @@
 !!!
 %html
   %head
-    %title LBCNew
-    -# = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    %title Caddiie
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-
-    -# .navbar.navbar-default.navbar-static-top{role: "navigation"}
-    -#   .container
-    -#     .navbar-header
-    -#       %a.navbar-brand{href: "/page/index"} Caddiie
-    -#     .navbar-collapse.collapse
-    -#       %ul.nav.navbar-nav
-    -#         %li.active
-    -#           %a{href: "/page/index"} Accueil
-    -#         %li
-    -#           %a{href: "/cats/index"} Catégories
-    -#         %li
-    -#           %a{href: "/profil/list"} Membres
-    -#         %li
-    -#           %a{href: "#"} A propos
-    -#         %li
-    -#           %a
-    -#             = form_tag("/page/search", class: "form-control col-lg-8", method: "get") do
-    -#               = text_field_tag :q, nil, placeholder: "Search"
-    -#       %ul.nav.navbar-nav.navbar-right
-    -#         %p.navbar-text.pull-right
-    -#           - if user_signed_in?
-    -#             Logged in as
-    -#             = succeed "." do
-    -#               %strong= current_user.email
-    -#             = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
-    -#             |
-    -#             \#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-    -#           - else
-    -#             = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
-    -#             |
-    -#             \#{link_to "Login", new_user_session_path, :class => 'navbar-link'}
-    -#           - if notice
-    -#             %p.alert.alert-success= notice
-    -#           - if alert
-    -#             %p.alert.alert-danger= alert
 
     .navbar.navbar-default.navbar-fixed-top{role: "navigation"}
       .container
@@ -99,36 +62,6 @@
 
     .navbar.navbar-default.navbar-static-top
 
-
-    -# - if notice
-    -#   %p.alert.alert-success= notice
-    -# - if alert
-    -#   %p.alert.alert-danger= alert
-
-
-
-    -# %p.navbar-text.pull-right
-    -#   - if user_signed_in?
-    -#     Logged in as
-    -#     = succeed "." do
-    -#       %strong= current_user.email
-    -#     = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
-    -#     |
-    -#     \#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-    -#   - else
-    -#     = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
-    -#     |
-    -#     \#{link_to "Login", new_user_session_path, :class => 'navbar-link'}
-    -#   - if notice
-    -#     %p.alert.alert-success= notice
-    -#   - if alert
-    -#     %p.alert.alert-danger= alert
-
-    -# .container
-    -#   = form_tag("/page/search", method: "get") do
-    -#     = label_tag(:q, "Search for:")
-    -#     = text_field_tag(:q)
-    -#     = submit_tag("Search")
 
     .container
       = yield

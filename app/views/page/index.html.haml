@@ -13,18 +13,15 @@
   .col-md-12
     %a{href: "/cats/index"}
       %button.btn.btn-primary.btn-lg.btn-idx.pull-left{type: "button"}
-        / %a.btn.btn-default{href: "#"}
         .glyphicon.glyphicon-eye-open
         %br
         Parcourir les annonces
     %a{href: "/posts/new"}
       %button.btn.btn-primary.btn-lg.btn-idx{type: "button"}
-        / %a.btn.btn-default{href: "#"}
         .glyphicon.glyphicon-edit
         %br
         Déposer une annonce
     %button.btn.btn-primary.btn-lg.btn-idx.pull-right{type: "button"}
-      / %a.btn.btn-default{href: "#"}
       .glyphicon.glyphicon-search
       %form{action: "/page/search", method: "get"}
         %input.form-control{id: "q", name: "q", placeholder: "Rechercher une annonce particulière", type: "text"}
