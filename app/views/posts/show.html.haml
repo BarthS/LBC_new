@@ -10,27 +10,13 @@
       - else
         = image_tag "/images/img/default-medium.png", width: "300px",class: "img-thumbnail img-rounded"
 
-    .col-md-8
-      .panel.panel-default
-        .panel-heading
-          %h3
-            %strong
-            = @post.title
-          %h5
-            Postée par
-            %strong
-            = @author.nom
-        - if user_signed_in? && current_user.try(:val?)
-          .panel-body
-            %h4
-              %strong
-              = @post.text
+      %br
 
-  - if user_signed_in? && current_user.try(:val?)
-    .col-md-12
-      .col-md-4
+      - if user_signed_in? && current_user.try(:val?)
+
         %br
-        %button.btn.btn-primary.btn-lg{type: "button"} Signaler cette annonce
+        %a{href: "/reports/new"}
+          %button.btn.btn-primary.btn-lg{type: "button"} Signaler cette annonce
         %br
         %br
         .panel.panel-info
@@ -51,6 +37,99 @@
                   %a{href: ""}
                     %h4.glyphicon.glyphicon-folder-open
                     Archiver
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          %h3
+            %strong
+            = @post.title
+          %h5
+            Postée par
+            %strong
+            = @author.nom
+        - if user_signed_in? && current_user.try(:val?)
+          .panel-body
+            %h4
+              %strong
+              = @post.text
+
+      - if user_signed_in? && current_user.try(:val?)
+        .panel.panel-default
+          .panel-body
+            -# .row
+            .col-md-12
+              .col-md-3
+                - if @post.image2?
+                  = image_tag @post.image2.url(:medium) , height: "120px",class: "img-rounded"
+              .col-md-3
+                - if @post.image3?
+                  = image_tag @post.image3.url(:medium) , height: "120px",class: "img-rounded"
+              .col-md-3
+                - if @post.image4?
+                  = image_tag @post.image4.url(:medium) , height: "120px",class: "img-rounded"
+              .col-md-3
+                - if @post.image5?
+                  = image_tag @post.image5.url(:medium) , height: "120px",class: "img-rounded"
+
+      .panel.panel-default
+        .panel-body
+          %h2 Commentaires
+          - @post.comments.each do |comment|
+
+            -# %p
+            -#   %strong User:
+            -#   - @user = User.find(comment.user_id)
+            -#   = @user.nom
+            -#
+            -# %p
+            -#   %strong Comment:
+            -#   = comment.text
+
+            %blockquote
+              %p= comment.text
+              %small
+                - @user = User.find(comment.user_id)
+                = @user.nom
+
+
+
+          .col-md-1
+          .col-md-8
+            %h3 Ajouter un commentaire
+            = form_for([@post, @post.comments.build]) do |f|
+
+              %p
+                = f.text_area :text
+
+              %p
+                = f.submit
+
+
+  -# - if user_signed_in? && current_user.try(:val?)
+  -#   .col-md-12
+  -#     .col-md-4
+  -#       %br
+  -#       %button.btn.btn-primary.btn-lg{type: "button"} Signaler cette annonce
+  -#       %br
+  -#       %br
+  -#       .panel.panel-info
+  -#         .panel-heading
+  -#           %h3.panel-title Author Box
+  -#         .panel-body
+  -#           .row
+  -#             .col-md-12
+  -#               .col-md-4
+  -#                 %a{href: "/posts/#{@post.id}/edit/"}
+  -#                   %h4.glyphicon.glyphicon-edit
+  -#                   Modifier
+  -#               .col-md-4
+  -#                 %a{href: ""}
+  -#                   %h4.glyphicon.glyphicon-warning-sign
+  -#                   Signaler
+  -#               .col-md-4
+  -#                 %a{href: ""}
+  -#                   %h4.glyphicon.glyphicon-folder-open
+  -#                   Archiver
 
       / .panel.panel-default
       /   .panel-body
@@ -88,42 +167,33 @@
 
 -# = link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
 
-- if user_signed_in? && current_user.try(:val?)
-  %h2 Comments
-  - @post.comments.each do |comment|
-
-    -# %p
-    -#   %strong User:
-    -#   - @user = User.find(comment.user_id)
-    -#   = @user.nom
-    -#
-    -# %p
-    -#   %strong Comment:
-    -#   = comment.text
-
-    %blockquote
-      %p= comment.text
-      %small
-        - @user = User.find(comment.user_id)
-        = @user.nom
-        %cite
-          = link_to '', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle"
-
-    -# = link_to 'Destroy', post_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }
-    -# = link_to 'Destroy Comment', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }
-
-
-
-  %h2 Add a comment:
-  = form_for([@post, @post.comments.build]) do |f|
-
-    %p
-      = f.label :body
-      %br/
-      = f.text_area :text
-
-    %p
-      = f.submit
-
-  = link_to 'Back', posts_path
-  = link_to 'Edit', edit_post_path(@post)
+-# - if user_signed_in? && current_user.try(:val?)
+-#   %h2 Commentaires
+-#   - @post.comments.each do |comment|
+-#
+-#     -# %p
+-#     -#   %strong User:
+-#     -#   - @user = User.find(comment.user_id)
+-#     -#   = @user.nom
+-#     -#
+-#     -# %p
+-#     -#   %strong Comment:
+-#     -#   = comment.text
+-#
+-#     %blockquote
+-#       %p= comment.text
+-#       %small
+-#         - @user = User.find(comment.user_id)
+-#         = @user.nom
+-#
+-#
+-#
+-#
+-#   %h3 Ajouter un commentaire
+-#   = form_for([@post, @post.comments.build]) do |f|
+-#
+-#     %p
+-#       = f.text_area :text
+-#
+-#     %p
+-#       = f.submit

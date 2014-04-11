@@ -1,85 +1,72 @@
 - if user_signed_in? && current_user.try(:val?)
 
   .row
-    .col-md-12
-      .page-header
+  .col-md-12
+    .col-md-2
+    .col-md-6
+      .panel.panel-default
+        .panel-body
+          %h1 Nouvelle annonce :
+          = form_for :post, url: posts_path do |f|
+            .row
+              .col-md-12
+                .col-lg-10
+                  %br/
+                  = f.text_field :title, placeholder: " Titre"
+              .col-md-12
+                .col-md-10
+                  %br/
+                  = collection_select :post, :cat_id, @cats, :id, :name, { :include_blank => "Choisir la Catégorie ?"}
+              .col-md-12
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.number_field :price, placeholder: " number"
+              .col-md-12
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.text_area :text, placeholder: " text"
+              .col-md-12
+                %p.col-md-2
+                  = f.label :image1
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.file_field :image1
+              .col-md-12
+                %p.col-md-2
+                  = f.label :image2
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.file_field :image2
+              .col-md-12
+                %p.col-md-2
+                  = f.label :image3
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.file_field :image3
+              .col-md-12
+                %p.col-md-2
+                  = f.label :image4
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.file_field :image4
+              .col-md-12
+                %p.col-md-2
+                  = f.label :image5
+                .col-md-10
+                  .col-xs-4
+                  %br/
+                  = f.file_field :image5
+                %div
 
-  .row
-    .col-md-12
-      .col-md-2
-      .col-md-6
-        .panel.panel-default
-          .panel-body
-            %h1 Nouvelle annonce :
-            = form_for :post, url: posts_path do |f|
-
-              .row
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :Titre
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.text_field :title
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :Catégorie
-                  .col-md-10
-                    %br/
-                    = collection_select :post, :cat_id, @cats, :id, :name, { :include_blank => "Choisir la Catégorie ?"}
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :Prix
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.number_field :price
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :Description
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.text_area :text
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :image1
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.file_field :image1
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :image2
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.file_field :image2
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :image3
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.file_field :image3
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :image4
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.file_field :image4
-                .col-md-12
-                  %p.col-md-2
-                    = f.label :image5
-                  .col-md-10
-                    .col-xs-4
-                    %br/
-                    = f.file_field :image5
-              %div
-                %h3
-                  = f.submit
-
+            %div
+              %p
+                = f.submit
 
 - else
   Accès interdit
