@@ -21,4 +21,5 @@ class PageController < ApplicationController
     @users = User.all
     @param_val = params[:a]
   end
+  
 end

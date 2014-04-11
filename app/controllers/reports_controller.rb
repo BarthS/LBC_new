@@ -19,6 +19,9 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
 
     @report.save
+    if @report.save
+        AdminMailer.new_report(@report).deliver
+    end
     redirect_to @report
   end
 

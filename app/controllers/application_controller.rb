@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
 
   def create
     @user = User.create( user_params )
+    if @user.save
+        AdminMailer.new_registration(@user).deliver
+    end
   end
 
   private
