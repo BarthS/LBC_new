@@ -69,10 +69,11 @@
               %a{href: "/profil/list"}
                 .glyphicon.glyphicon-user
                 Membres
-            %li{id: "l4"}
-              %a{href: "/reports/index"}
-                .glyphicon.glyphicon-lock
-                Admin Panel
+            - if current_user.try(:admin?)
+              %li{id: "l4"}
+                %a{href: "/reports/index"}
+                  .glyphicon.glyphicon-lock
+                  Admin Panel
 
 
           %form.navbar-form.navbar-left{action: "/page/search", method: "get"}

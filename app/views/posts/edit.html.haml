@@ -1,3 +1,7 @@
+.row
+  .col-md-12
+    .page-header
+
 %h1 Modifier l'annonce:
 = form_for :post, url: post_path(@post), method: :patch do |f|
   - if @post.errors.any?

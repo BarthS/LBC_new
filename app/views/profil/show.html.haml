@@ -1,5 +1,9 @@
 .row
   .col-md-12
+    .page-header
+
+.row
+  .col-md-12
     .col-md-3
       - if @user.avatar?
         = image_tag @user.avatar.url(:medium), height: "250px", width: "250px",class: "img-thumbnail img-rounded"
@@ -62,11 +66,8 @@
                   .glyphicon.glyphicon-earphone
                 .col-md-8
                   = @user.tel
-<<<<<<< HEAD
-      .row
-=======
-      .row          
->>>>>>> FETCH_HEAD
+
+
       .panel.panel-default.panel-body.no-padding
         %table.table.table-striped.table-hover
           %thead
@@ -77,7 +78,7 @@
                 Parcourir
           %tbody
             - @posts.each do |p|
-              - if p.user_id == @user.id
+              - if p.user_id = @user.id
                 %tr
                   %td
                     %strong
@@ -86,29 +87,25 @@
                     %a{href: "/posts/#{p.id}"}
                       .glyphicon.glyphicon-list-alt.h4
     .col-md-3
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title Owner Box
-        .panel-body
-          .row
-            .col-md-12
-              .col-md-5
-                %a{href: "/users/edit"}
-                  %h5.glyphicon.glyphicon-edit Modifier
-              .col-md-5
-                %a{href: "/users/sign_in/"}
-                  %h5.glyphicon.glyphicon-remove Supprimer
-      .panel.panel-primary
-        .panel-heading
-          %h3.panel-title Nouvel Admin
-        .panel-body
-          .row
-            .col-md-12
-              .col-md-5
-                %h5.glyphicon.glyphicon-check Valider
-              .col-md-5
-<<<<<<< HEAD
-                %h5.glyphicon.glyphicon-lock Administrateur
-=======
-                %h5.glyphicon.glyphicon-lock Administrateur
->>>>>>> FETCH_HEAD
+      - if @user.id === current_user.id || current_user.admin?
+        .panel.panel-info
+          .panel-heading
+            %h3.panel-title Owner Box
+          .panel-body
+            .row
+              .col-md-12
+                .col-md-5
+                  %a{href: "/users/edit"}
+                    %h5.glyphicon.glyphicon-edit Modifier/Supprimer
+      - if current_user.try(:admin?)
+        .panel.panel-primary
+          .panel-heading
+            %h3.panel-title Nouvel Admin
+          .panel-body
+            .row
+              .col-md-12
+                .col-md-5
+                  %h5.glyphicon.glyphicon-check Valider
+                .col-md-5
+                  %a{href: "/page/new_admin/?a=#{@user.id}"}
+                    %h5.glyphicon.glyphicon-lock Administrateur

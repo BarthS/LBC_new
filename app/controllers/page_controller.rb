@@ -11,4 +11,9 @@ class PageController < ApplicationController
     @users = User.all
     @recherche = params[:q]
   end
+
+  def new_admin
+    @users = User.all
+    @param_admin = params[:a]
+  end
 end

@@ -1,13 +1,19 @@
-= form_for :cat, url: cats_path do |f|
-  %p
-    = f.label :Nom
-    %br/
-    = f.text_field :name
-  %p
-    = f.label :Icon
-    %br/
-    = f.text_field :icon, value: "glyphicon glyphicon-tag"
-  %p
-    = f.submit
+- if current_user.try(:admin?)
 
-= render 'icons'
+  = form_for :cat, url: cats_path do |f|
+    %p
+      = f.label :Nom
+      %br/
+      = f.text_field :name
+    %p
+      = f.label :Icon
+      %br/
+      = f.text_field :icon, value: "glyphicon glyphicon-tag"
+    %p
+      = f.submit
+
+  = render 'icons'
+
+- else
+
+  Vous n'avez pas les permissions requises.
