@@ -1,37 +1,82 @@
-%p
-  %strong Cat_ID:
-  =@post.cat_id
+.row
+  .col-md-12
+    .col-md-4
+      - if @post.image1?
+        = image_tag @post.image1.url(:medium) , height: "300px", width: "300px",class: "img-mediumnail img-rounded"
+    
+    .col-md-8
+      .panel.panel-default
+        .panel-heading 
+          %h3
+            %strong
+            = @post.title
+          %h5
+            Postée par
+            %strong
+            = @author.nom
+        .panel-body
+          %h4
+            %strong
+            = @post.text
 
-%p
-  %strong Author:
-  = @author.nom
+  .col-md-12
+    .col-md-4
+      %br
+      %button.btn.btn-primary.btn-lg{type: "button"} Signaler cette annonce
+      %br
+      %br
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title Author Box
+        .panel-body
+          .row
+            .col-md-12
+              .col-md-4
+                %a{href: "/posts/#{@post.id}/edit/"}
+                  %h4.glyphicon.glyphicon-edit
+                  Modifier
+              .col-md-4
+                %a{href: ""}
+                  %h4.glyphicon.glyphicon-warning-sign
+                  Signaler
+              .col-md-4
+                %a{href: ""}
+                  %h4.glyphicon.glyphicon-folder-open
+                  Archiver
 
-%p
-  %strong Title:
-  = @post.title
-%p
-  %strong Price:
-  = @post.price
-%p
-  %strong Text:
-  = @post.text
+      / .panel.panel-default
+      /   .panel-body
+      /     %p
+      /       %strong Cat_ID:
+      /       =@post.cat_id
+
+      /     %p
+      /       %strong Author:
+      /       = @author.nom
+
+      /     %p
+      /       %strong Title:
+      /       = @post.title
+      /     %p
+      /       %strong Price:
+      /       = @post.price
+      /     %p
+      /       %strong Text:
+      /       = @post.text
 
 
-%p
-  - if @post.image1?
-    = image_tag @post.image1.url(:thumb)
-%p
-  - if @post.image2?
-    = image_tag @post.image2.url(:thumb)
-%p
-  - if @post.image3?
-    = image_tag @post.image3.url(:thumb)
-%p
-  - if @post.image4?
-    = image_tag @post.image4.url(:thumb)
-%p
-  - if @post.image5?
-    = image_tag @post.image5.url(:thumb)
+/ %p
+/   - if @post.image2?
+/     = image_tag @post.image2.url(:thumb)
+/ %p
+/   - if @post.image3?
+/     = image_tag @post.image3.url(:thumb)
+/ %p
+/   - if @post.image4?
+/     = image_tag @post.image4.url(:thumb)
+/ %p
+/   - if @post.image5?
+/     = image_tag @post.image5.url(:thumb)
 
 = link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
 
